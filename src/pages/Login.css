@@ -46,7 +46,7 @@
   }
 }
 
-input[type=number], select {
+.input{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -56,7 +56,7 @@ input[type=number], select {
   box-sizing: border-box;
 }
 
-button {
+.button {
   width: 100%;
   background-color: #58249c;
   color: white;
@@ -67,14 +67,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   background-color: #3e117a;
 }
 
-h1 {
+.h1 {
   text-align: center;
 }
-hr {
+.hr {
   display: block;
   height: 1px;
   border: 0;
@@ -83,11 +83,11 @@ hr {
   padding: 0;
 }
 
-p{
+.p{
   text-align: center;
 }
 
-label{
+.label{
   display: block;
   margin-top: 10px;
   text-decoration: dashed;

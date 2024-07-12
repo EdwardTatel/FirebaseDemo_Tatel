@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
-
+import './Login.css'
 function Login({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,8 +18,9 @@ function Login({ onLoginSuccess }) {
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-      alert('Welcome to the site!');
-      onLoginSuccess(q); 
+      const userData = querySnapshot.docs[0].data();
+      alert('Welcome to the site, ' + userData.username + '!');
+      onLoginSuccess(userData); 
     } else {
       alert('Invalid username or password');
     }
@@ -29,28 +30,28 @@ function Login({ onLoginSuccess }) {
     <div className="login-modal">
       <div className="modal">
         <form onSubmit={handleSubmit}>
-          <h1>Login</h1>
-          <label>
-            Username:
-            <input 
-              type="text" 
-              value={username} 
-              onChange={e => setUsername(e.target.value)} 
-              required 
-            />
-          </label>
+        <h1>Login</h1>
+        <label>Username</label>
+
+        <input 
+          className='input'
+          type="text" 
+          required 
+          onChange={e => setUsername(e.target.value)} 
+          value={username}
+        />
+          <br></br>
+        <label>Password</label>
+
+        <input 
+          className='input'
+          type="password" 
+          required 
+          onChange={e => setPassword(e.target.value)} 
+          value={password}
+        />
           <br />
-          <label>
-            Password:
-            <input 
-              type="password" 
-              value={password} 
-              onChange={e => setPassword(e.target.value)} 
-              required 
-            />
-          </label>
-          <br />
-          <button>Login</button>
+          <button className='button'>Login</button>
           <br /><br />
         </form>
       </div>
