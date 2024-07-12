@@ -1,4 +1,4 @@
-# Lab Activity: React Hooks
+# Firebase Activity
 
 This is my submission for the firebase activity for the subject of CS ELECTIVE 3(Hybrid Programming (React/Ruby on rails) 
 
